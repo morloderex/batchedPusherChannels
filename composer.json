@@ -1,0 +1,42 @@
+{
+    "name": "morloderex/batched-pusher-channels",
+    "description": "Returns batched pusher auth responses",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "illuminate/broadcasting": "^5.5||^5.6",
+        "illuminate/http": "^5.5||^5.6",
+        "pusher/pusher-php-server": "^3.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.0",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PusherBatch\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PusherBatch\\Tests\\": "test/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Michael Lundbøl",
+            "email": "michael.lundboel@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PusherBatch\\Broadcaster\\BatchedPusherProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
