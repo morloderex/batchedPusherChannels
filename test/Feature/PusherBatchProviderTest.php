@@ -1,16 +1,15 @@
 <?php
 
-namespace PusherBatch\Tests\Feature;
+namespace Morloderex\PusherBatch\Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
 use Pusher\Pusher;
-use PusherBatch\Broadcaster;
+use Morloderex\PusherBatch\Broadcaster;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Broadcasting\BroadcastController;
-use PusherBatch\Tests\ModelStub;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PusherBatchProviderTest extends TestCase
 {

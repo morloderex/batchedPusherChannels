@@ -1,6 +1,6 @@
 <?php
 
-namespace PusherBatch\Providers;
+namespace Morloderex\PusherBatch\Providers;
 
 use Pusher\Pusher;
 use PusherBatch\Broadcaster;

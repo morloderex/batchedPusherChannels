@@ -15,12 +15,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PusherBatch\\": "src/"
+            "Morloderex\\PusherBatch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PusherBatch\\Tests\\": "test/"
+            "Morloderex\\PusherBatch\\Tests\\": "test/"
         }
     },
     "authors": [

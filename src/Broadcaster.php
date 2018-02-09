@@ -1,6 +1,6 @@
 <?php
 
-namespace PusherBatch;
+namespace Morloderex\PusherBatch;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
