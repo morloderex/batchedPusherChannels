@@ -1,5 +1,6 @@
 # Batched push provider for laravel
 
+[![Build Status](https://travis-ci.org/morloderex/batchedPusherChannels.svg?branch=master)](https://travis-ci.org/morloderex/batchedPusherChannels)
 
 * [Installation](#installation)
 
