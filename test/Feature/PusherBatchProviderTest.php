@@ -4,9 +4,9 @@ namespace Morloderex\PusherBatch\Tests\Feature;
 
 use Mockery;
 use Pusher\Pusher;
-use Morloderex\PusherBatch\Broadcaster;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Foundation\Auth\User;
+use Morloderex\PusherBatch\Broadcaster;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Broadcasting\BroadcastController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -27,16 +27,17 @@ class PusherBatchProviderTest extends TestCase
 
     protected function getEnvironmentSetUp($app)
     {
-        $app['router']->post('/broadcasting/auth', BroadcastController::class . '@authenticate');
+        $app['router']->post('/broadcasting/auth', BroadcastController::class.'@authenticate');
     }
 
     public function test_broadcast_driver()
     {
         $this->withoutExceptionHandling();
 
-
         $response = $this->actingAs(
-            tap(new User, function ($user) {$user->id = 1;})
+            tap(new User, function ($user) {
+                $user->id = 1;
+            })
         )->call('POST', 'broadcasting/auth', [
             'socket_id' => 'testing',
             'channel_name' => [
@@ -44,7 +45,7 @@ class PusherBatchProviderTest extends TestCase
                 'private-post.2',
                 'presence-user.1',
                 'presence-user.2',
-            ]
+            ],
         ]);
 
         $response->assertStatus(200);
@@ -56,7 +57,7 @@ class PusherBatchProviderTest extends TestCase
                 'status' => 200,
                 'data' => [
                     'auth' => 'testing',
-                ]
+                ],
             ],
             'presence-user.1' => [
                 'status' => 200,
@@ -64,18 +65,18 @@ class PusherBatchProviderTest extends TestCase
                     'auth' => 'testing',
                     'channel_data'  => [
                         'user_id' => 1,
-                        'user_info' => 1
-                    ]
-                ]
+                        'user_info' => 1,
+                    ],
+                ],
             ],
             'presence-user.2' => [
                 'status' => 403,
-            ]
+            ],
         ]);
     }
 
     /**
-     * Register my provider
+     * Register my provider.
      *
      * @param \Illuminate\Foundation\Application $app
      * @return array
@@ -98,7 +99,6 @@ class PusherBatchProviderTest extends TestCase
 
         $pusher->shouldNotReceive('presence_auth')
             ->with('presence-user.2', 'testing', 1, true);
-
 
         $pusher->shouldReceive('socket_auth')
             ->once()
