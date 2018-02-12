@@ -19,7 +19,7 @@ class Broadcaster extends PusherBroadcaster
     {
         $channels = [];
 
-        foreach($request->channel_name as $channel) {
+        foreach ($request->channel_name as $channel) {
             if (Str::startsWith($channel, ['private-', 'presence-']) && ! $request->user()) {
                 $channels[$channel] = [
                     'status' => Response::HTTP_FORBIDDEN,
@@ -32,11 +32,11 @@ class Broadcaster extends PusherBroadcaster
             if ($result) {
                 $channels[$channel] = [
                     'status' => Response::HTTP_OK,
-                    'data' => $this->validAuthenticationBatchedResponse($request, $channel, $result)
+                    'data' => $this->validAuthenticationBatchedResponse($request, $channel, $result),
                 ];
             } else {
                 $channels[$channel] = [
-                    'status' => Response::HTTP_FORBIDDEN
+                    'status' => Response::HTTP_FORBIDDEN,
                 ];
             }
         }
@@ -92,7 +92,6 @@ class Broadcaster extends PusherBroadcaster
      */
     public function validAuthenticationResponse($request, $result)
     {
-
     }
 
     /**
