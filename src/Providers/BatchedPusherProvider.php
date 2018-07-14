@@ -3,7 +3,7 @@
 namespace Morloderex\PusherBatch\Providers;
 
 use Pusher\Pusher;
-use PusherBatch\Broadcaster;
+use Morloderex\PusherBatch\Broadcaster;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
 
