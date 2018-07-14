@@ -32,7 +32,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Morloderex\\PusherBatch\\Broadcaster\\BatchedPusherProvider"
+                "Morloderex\\PusherBatch\\Providers\\BatchedPusherProvider"
             ]
         }
     },
